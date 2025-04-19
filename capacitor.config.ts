@@ -12,9 +12,14 @@ const config: CapacitorConfig = {
   plugins: {
     SplashScreen: {
       backgroundColor: "#0A1029",
-      launchAutoHide: true
+      launchAutoHide: true,
+      // Add icon paths for splash screen
+      androidSplashResourceName: 'splash',
+      androidScaleType: 'CENTER_CROP',
+      showSpinner: false
     }
   }
 };
 
 export default config;
+
