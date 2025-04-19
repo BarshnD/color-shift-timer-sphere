@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { TimerButton } from './TimerButton';
 import { CustomTimeSlider } from './CustomTimeSlider';
 import { SoundSettings } from './SoundSettings';
 import { useTimerSounds } from '@/hooks/useTimerSounds';
+import { Clock } from 'lucide-react';
 
 export const Timer = () => {
   const [timeInMinutes, setTimeInMinutes] = useState(5);
@@ -49,7 +49,11 @@ export const Timer = () => {
   const seconds = timeLeft % 60;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0A1029] to-[#1A2151] flex flex-col items-center justify-center gap-8 relative">
+    <div className="min-h-screen bg-gradient-to-b from-[#1A1F2C] to-[#403E43] flex flex-col items-center justify-center gap-8 relative">
+      <div className="absolute top-8 left-8">
+        <Clock className="text-white w-8 h-8" />
+      </div>
+      
       <SoundSettings onCustomSoundChange={setCustomSound} />
       
       <div className="text-white text-8xl font-mono mb-8 tracking-wider glass-morphism px-8 py-4 rounded-xl">
