@@ -1,1 +1,1 @@
-https://color-shift-timer-sphere.lovabable.app/
+color-shift-timer-sphere.lovable.app/
