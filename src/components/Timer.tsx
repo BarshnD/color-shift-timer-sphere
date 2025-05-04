@@ -4,7 +4,7 @@ import { TimerButton } from './TimerButton';
 import { CustomTimeSlider } from './CustomTimeSlider';
 import { SoundSettings } from './SoundSettings';
 import { useTimerSounds } from '@/hooks/useTimerSounds';
-import { Clock, Stop } from 'lucide-react';
+import { Clock, CircleStop } from 'lucide-react';
 import { Button } from './ui/button';
 
 export const Timer = () => {
@@ -77,7 +77,7 @@ export const Timer = () => {
             className="rounded-full h-16 w-16 flex items-center justify-center"
             onClick={handleStopTimer}
           >
-            <Stop className="h-8 w-8" />
+            <CircleStop className="h-8 w-8" />
           </Button>
         )}
       </div>
