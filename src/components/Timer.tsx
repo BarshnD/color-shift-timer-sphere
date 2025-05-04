@@ -1,9 +1,11 @@
+
 import { useState, useEffect } from 'react';
 import { TimerButton } from './TimerButton';
 import { CustomTimeSlider } from './CustomTimeSlider';
 import { SoundSettings } from './SoundSettings';
 import { useTimerSounds } from '@/hooks/useTimerSounds';
-import { Clock } from 'lucide-react';
+import { Clock, Stop } from 'lucide-react';
+import { Button } from './ui/button';
 
 export const Timer = () => {
   const [timeInMinutes, setTimeInMinutes] = useState(5);
@@ -45,6 +47,11 @@ export const Timer = () => {
     setTimeLeft(minutes * 60);
   };
 
+  const handleStopTimer = () => {
+    setIsRunning(false);
+    setTimeLeft(timeInMinutes * 60);
+  };
+
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
@@ -60,7 +67,20 @@ export const Timer = () => {
         {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
       </div>
       
-      <TimerButton onTimeSelect={handleTimeSelect} />
+      <div className="flex flex-row gap-4 items-center">
+        <TimerButton onTimeSelect={handleTimeSelect} />
+        
+        {isRunning && (
+          <Button 
+            variant="destructive" 
+            size="lg" 
+            className="rounded-full h-16 w-16 flex items-center justify-center"
+            onClick={handleStopTimer}
+          >
+            <Stop className="h-8 w-8" />
+          </Button>
+        )}
+      </div>
       
       <CustomTimeSlider 
         value={timeInMinutes}
